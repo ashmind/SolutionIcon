@@ -38,7 +38,7 @@ namespace SolutionIcon.Implementation {
 
         private void SolutionEvents_Opened() {
             var solution = _dte.Solution;
-            _logger.WriteLine("Opened solution '{0}'.", solution.GetName());
+            _logger.WriteLine("Solution '{0}' opened.", solution.GetName());
 
             try {
                 using (var icon = GetIcon(solution)) {
@@ -51,6 +51,7 @@ namespace SolutionIcon.Implementation {
         }
 
         private void SolutionEvents_AfterClosing() {
+            _logger.WriteLine("Solution closed.");
             TaskbarManager.Instance.SetOverlayIcon(null, "");
         }
         
