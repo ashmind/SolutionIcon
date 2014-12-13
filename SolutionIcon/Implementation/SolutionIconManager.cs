@@ -58,11 +58,13 @@ namespace SolutionIcon.Implementation {
         private Bitmap GetIconImage([NotNull] Solution solution) {
             var iconFile = _iconDiscovery.FindIcon(solution);
             if (iconFile != null) {
+                _logger.WriteLine("Solution '{0}': found icon at '{1}'.", solution.FullName, iconFile.FullName);
                 using (var stream = iconFile.OpenRead()) {
                     return (Bitmap)Image.FromStream(stream);
                 }
             }
-            
+
+            _logger.WriteLine("Solution '{0}': Icon not found, generating.", solution.FullName);
             return _iconGenerator.GenerateIcon(solution.FullName, solution.FileName);
         }
     }
