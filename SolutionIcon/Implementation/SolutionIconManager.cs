@@ -31,6 +31,7 @@ namespace SolutionIcon.Implementation {
 
             _solutionEvents = _dte.Events.SolutionEvents;
             _solutionEvents.Opened += SolutionEvents_Opened;
+            _solutionEvents.AfterClosing += SolutionEvents_AfterClosing;
         }
 
         private void SolutionEvents_Opened() {
@@ -45,6 +46,10 @@ namespace SolutionIcon.Implementation {
             catch (Exception ex) {
                 _logger.WriteLine(ex.ToString());
             }
+        }
+
+        private void SolutionEvents_AfterClosing() {
+            TaskbarManager.Instance.SetOverlayIcon(null, "");
         }
 
         [NotNull]
