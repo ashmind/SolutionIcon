@@ -15,22 +15,21 @@ namespace SolutionIcon.Implementation {
         }).Select(ColorTranslator.FromHtml).ToArray();
 
         private readonly TinyIdGenerator _idGenerator;
-        private const int ImageSize = 32;
 
         public IconGenerator(TinyIdGenerator idGenerator) {
             _idGenerator = idGenerator;
         }
 
         [NotNull]
-        public Bitmap GenerateIcon([NotNull] string name, [NotNull] string path) {
+        public Bitmap GenerateIcon([NotNull] string name, [NotNull] string path, Size size) {
             var id = _idGenerator.GetTinyId(name);
 
             Bitmap image = null;
             try {
-                image = new Bitmap(ImageSize, ImageSize);
+                image = new Bitmap(size.Width, size.Height);
 
                 var color = Colors[GetStableHash(path)%Colors.Length];
-                var bounds = new RectangleF(0, 0, ImageSize, ImageSize);
+                var bounds = new RectangleF(0, 0, size.Width, size.Height);
 
                 using (var graphics = Graphics.FromImage(image))
                 using (var brush = new SolidBrush(color))

@@ -92,6 +92,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="TestFiles\IconConverter\hat.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="TestFiles\IconConverter\hat.ico.expected.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="TestFiles\IconConverter\wikimedia-logo.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

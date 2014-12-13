@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
@@ -18,7 +19,7 @@ namespace SolutionIcon.Tests.Unit {
         public void GenerateIcon_ReturnsExpectedImage(string solutionName, string solutionPath) {
             var actualPath = ResolveTestPath(solutionName + ".actual.png");
             var generator = new IconGenerator(new TinyIdGenerator());
-            using (var image = generator.GenerateIcon(solutionName, solutionPath)) {
+            using (var image = generator.GenerateIcon(solutionName, solutionPath, new Size(32, 32))) {
                 image.Save(actualPath, ImageFormat.Png);
             }
 

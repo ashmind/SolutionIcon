@@ -13,6 +13,7 @@ namespace SolutionIcon.Tests.Unit {
     public class IconConverterTests {
         [Theory]
         [InlineData("wikimedia-logo.png")]
+        [InlineData("hat.ico")]
         public void ConvertIcon_ProducesExpectedImage_FromStaticFile(string inputFileName) {
             var actualFileName = inputFileName + ".actual.ico";
             using (var image = (Bitmap) Image.FromFile(ResolveTestPath(inputFileName))) {
@@ -43,7 +44,7 @@ namespace SolutionIcon.Tests.Unit {
         }
 
         private static void ConvertToIconAndSave(Bitmap image, string fileName) {
-            using (var icon = new IconConverter().ConvertToIcon(image))
+            using (var icon = new IconConverter().ConvertToIcon(image, new Size(32, 32)))
             using (var output = File.OpenWrite(ResolveTestPath(fileName))) {
                 icon.Save(output);
             }

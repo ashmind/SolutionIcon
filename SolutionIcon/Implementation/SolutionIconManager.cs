@@ -54,13 +54,15 @@ namespace SolutionIcon.Implementation {
 
         [NotNull]
         private Icon GetIcon([NotNull] Solution solution) {
-            using (var image = GetIconImage(solution)) {
-                return _iconConverter.ConvertToIcon(image);
+            var size = new Size(32, 32);
+            using (var image = GetIconImage(solution, size)) {
+                return _iconConverter.ConvertToIcon(image, size);
             }
         }
 
         [NotNull]
-        private Bitmap GetIconImage([NotNull] Solution solution) {
+        private Bitmap GetIconImage([NotNull] Solution solution, Size size) {
+            
             var solutionName = solution.GetName();
             var iconFile = _iconDiscovery.FindIcon(solution);
             if (iconFile != null) {
@@ -71,7 +73,7 @@ namespace SolutionIcon.Implementation {
             }
 
             _logger.WriteLine("Solution '{0}': Icon not found, generating.", solutionName);
-            return _iconGenerator.GenerateIcon(solutionName, solution.FileName);
+            return _iconGenerator.GenerateIcon(solutionName, solution.FileName, size);
         }
     }
 }
