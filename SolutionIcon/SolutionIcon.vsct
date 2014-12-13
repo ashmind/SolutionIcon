@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CommandTable xmlns="http://schemas.microsoft.com/VisualStudio/2005-10-18/CommandTable" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <!--  The VSCT compiler (the tool that translates this file into the binary 
+        format that VisualStudio will consume) has the ability to run a preprocessor 
+        on the vsct file; this preprocessor is (usually) the C++ preprocessor, so 
+        it is possible to define includes and macros with the same syntax used 
+        in C++ files. Using this ability of the compiler here, we include some files 
+        defining some of the constants that we will use inside the file. -->
+
+  <!-- Headers -->
+  <Extern href="stdidcmd.h" />
+  <Extern href="vsshlids.h" />
+  <Extern href="vsdbgcmd.h" />
+
+  <Symbols>
+    <!-- This is the package guid. -->
+    <GuidSymbol name="guidSolutionIconPackage" value="{7696a097-76fc-4940-87d8-97d5304a5a9b}" />
+  </Symbols>
+</CommandTable>
