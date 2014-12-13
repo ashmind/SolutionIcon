@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms;
+using JetBrains.Annotations;
 
 namespace SolutionIcon.Implementation {
     public class IconGenerator {
@@ -21,7 +21,8 @@ namespace SolutionIcon.Implementation {
             _idGenerator = idGenerator;
         }
 
-        public Bitmap GenerateIcon(string name, string path) {
+        [NotNull]
+        public Bitmap GenerateIcon([NotNull] string name, [NotNull] string path) {
             var id = _idGenerator.GetTinyId(name);
 
             Bitmap image = null;

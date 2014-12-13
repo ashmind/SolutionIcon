@@ -67,6 +67,9 @@
     <Reference Include="IconLib">
       <HintPath>..\#packages\IconLib.Unofficial.0.73.0-local1\lib\net20\IconLib.dll</HintPath>
     </Reference>
+    <Reference Include="JetBrains.Annotations">
+      <HintPath>..\#packages\JetBrains.Annotations.8.0.4.0\lib\net20\JetBrains.Annotations.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualStudio.OLE.Interop" />
     <Reference Include="Microsoft.VisualStudio.Shell.Interop" />
@@ -159,7 +162,6 @@
     <Compile Include="Implementation\IconConverter.cs" />
     <Compile Include="Implementation\IconDiscovery.cs" />
     <Compile Include="Implementation\IconGenerator.cs" />
-    <Compile Include="Implementation\RecursiveSolutionWalker.cs" />
     <Compile Include="Implementation\SolutionIconManager.cs" />
     <Compile Include="Guids.cs" />
     <Compile Include="Implementation\ExtensionLogger.cs" />

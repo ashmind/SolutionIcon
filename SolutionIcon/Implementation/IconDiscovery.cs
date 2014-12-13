@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using AshMind.IO.Abstractions;
 using EnvDTE;
+using JetBrains.Annotations;
 
 namespace SolutionIcon.Implementation {
     public class IconDiscovery {
@@ -24,10 +25,13 @@ namespace SolutionIcon.Implementation {
             _fileSystem = fileSystem;
         }
 
-        public IFile FindIcon(Solution solution/*, IEnumerable<string> paths*/) {
+        [CanBeNull]
+        public IFile FindIcon([NotNull] Solution solution) {
+            // ReSharper disable once PossibleNullReferenceException
             var solutionDirectory = _fileSystem.GetFile(solution.FileName).Directory;
 
             // .editoricon, not part of any standard. But it should be!
+            // ReSharper disable once PossibleNullReferenceException
             var editorIcon = solutionDirectory.EnumerateFiles(".editoricon.*").FirstOrDefault();
             if (editorIcon != null && ImageFileExtensions.Contains(editorIcon.Extension))
                 return editorIcon;

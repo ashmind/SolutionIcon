@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using EnvDTE;
+using JetBrains.Annotations;
 using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace SolutionIcon.Implementation {
@@ -46,13 +47,15 @@ namespace SolutionIcon.Implementation {
             }
         }
 
-        private Icon GetIcon(Solution solution) {
+        [NotNull]
+        private Icon GetIcon([NotNull] Solution solution) {
             using (var image = GetIconImage(solution)) {
                 return _iconConverter.ConvertToIcon(image);
             }
         }
 
-        private Bitmap GetIconImage(Solution solution) {
+        [NotNull]
+        private Bitmap GetIconImage([NotNull] Solution solution) {
             var iconFile = _iconDiscovery.FindIcon(solution);
             if (iconFile != null) {
                 using (var stream = iconFile.OpenRead()) {

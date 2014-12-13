@@ -4,10 +4,12 @@ using System.Drawing;
 using System.Drawing.IconLib;
 using System.IO;
 using System.Linq;
+using JetBrains.Annotations;
 
 namespace SolutionIcon.Implementation {
     public class IconConverter {
-        public Icon ConvertToIcon(Bitmap image) {
+        [NotNull]
+        public Icon ConvertToIcon([NotNull] Bitmap image) {
             var converted = new MemoryStream();
             var multi = new MultiIcon();
             var icon = multi.Add("Main");
