@@ -8,6 +8,8 @@ using Microsoft.WindowsAPICodePack.Taskbar;
 
 namespace SolutionIcon.Implementation {
     public class SolutionIconManager {
+        private static readonly Size IconSize = new Size(32, 32);
+
         private readonly DTE _dte;
         private readonly IconDiscovery _iconDiscovery;
         private readonly IconConverter _iconConverter;
@@ -51,29 +53,42 @@ namespace SolutionIcon.Implementation {
         private void SolutionEvents_AfterClosing() {
             TaskbarManager.Instance.SetOverlayIcon(null, "");
         }
-
-        [NotNull]
+        
+        [CanBeNull]
         private Icon GetIcon([NotNull] Solution solution) {
-            var size = new Size(32, 32);
-            using (var image = GetIconImage(solution, size)) {
-                return _iconConverter.ConvertToIcon(image, size);
+            var solutionName = solution.GetName();
+            var existing = FindAndConvertExistingIcon(solution);
+            if (existing != null)
+                return existing;
+
+            _logger.WriteLine("Solution '{0}': icon not available, generating.", solutionName);
+            using (var image = _iconGenerator.GenerateIcon(solutionName, solution.FileName, IconSize)) {
+                return ConvertToIconFailSafe(image, "generated image");
+            }
+        }
+        
+        [CanBeNull]
+        private Icon FindAndConvertExistingIcon([NotNull] Solution solution) {
+            var iconFile = _iconDiscovery.FindIcon(solution);
+            if (iconFile == null)
+                return null;
+
+            _logger.WriteLine("Solution '{0}': found icon at '{1}'.", solution.GetName(), iconFile.FullName);
+            using (var stream = iconFile.OpenRead())
+            using (var image = (Bitmap) Image.FromStream(stream)) {
+                return ConvertToIconFailSafe(image, iconFile.FullName);
             }
         }
 
-        [NotNull]
-        private Bitmap GetIconImage([NotNull] Solution solution, Size size) {
-            
-            var solutionName = solution.GetName();
-            var iconFile = _iconDiscovery.FindIcon(solution);
-            if (iconFile != null) {
-                _logger.WriteLine("Solution '{0}': found icon at '{1}'.", solutionName, iconFile.FullName);
-                using (var stream = iconFile.OpenRead()) {
-                    return (Bitmap)Image.FromStream(stream);
-                }
+        [CanBeNull]
+        private Icon ConvertToIconFailSafe([NotNull] Bitmap image, [NotNull] string imageDescriptionForLog) {
+            try {
+                return _iconConverter.ConvertToIcon(image, IconSize);
             }
-
-            _logger.WriteLine("Solution '{0}': Icon not found, generating.", solutionName);
-            return _iconGenerator.GenerateIcon(solutionName, solution.FileName, size);
+            catch (Exception ex) {
+                _logger.WriteLine("Failed to convert {0} to icon: {1}", imageDescriptionForLog, ex);
+                return null;
+            }
         }
     }
 }

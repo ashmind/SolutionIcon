@@ -2,8 +2,6 @@
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using AshMind.Extensions;
 using SolutionIcon.Tests.Unit.Helpers;
 using Xunit;
 using Xunit.Extensions;
