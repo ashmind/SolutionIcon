@@ -41,13 +41,13 @@
     <Reference Include="AshMind.Extensions">
       <HintPath>..\#packages\AshMind.Extensions.1.6.0\lib\net45\AshMind.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="AshMind.IO.Abstractions, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AshMind.IO.Abstractions, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\#packages\AshMind.IO.Abstractions.Mocks.0.9.0-pre-m5\lib\net35\AshMind.IO.Abstractions.dll</HintPath>
+      <HintPath>..\#packages\AshMind.IO.Abstractions.Mocks.0.9.1-pre7\lib\net35\AshMind.IO.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="AshMind.IO.Abstractions.Mocks, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AshMind.IO.Abstractions.Mocks, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\#packages\AshMind.IO.Abstractions.Mocks.0.9.0-pre-m5\lib\net35\AshMind.IO.Abstractions.Mocks.dll</HintPath>
+      <HintPath>..\#packages\AshMind.IO.Abstractions.Mocks.0.9.1-pre7\lib\net35\AshMind.IO.Abstractions.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="Moq">
       <HintPath>..\#packages\Moq.4.2.1409.1722\lib\net40\Moq.dll</HintPath>

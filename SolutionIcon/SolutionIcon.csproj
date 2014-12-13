@@ -60,9 +60,9 @@
     <Reference Include="AshMind.Extensions">
       <HintPath>..\#packages\AshMind.Extensions.1.6.0\lib\net40\AshMind.Extensions.dll</HintPath>
     </Reference>
-    <Reference Include="AshMind.IO.Abstractions, Version=0.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="AshMind.IO.Abstractions, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\#packages\AshMind.IO.Abstractions.0.9.0-pre\lib\net40\AshMind.IO.Abstractions.dll</HintPath>
+      <HintPath>..\#packages\AshMind.IO.Abstractions.0.9.1-pre\lib\net40\AshMind.IO.Abstractions.dll</HintPath>
     </Reference>
     <Reference Include="IconLib">
       <HintPath>..\#packages\IconLib.Unofficial.0.73.0-local1\lib\net20\IconLib.dll</HintPath>
