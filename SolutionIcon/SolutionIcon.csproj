@@ -64,8 +64,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\#packages\AshMind.IO.Abstractions.0.9.1-pre\lib\net40\AshMind.IO.Abstractions.dll</HintPath>
     </Reference>
-    <Reference Include="IconLib">
-      <HintPath>..\#packages\IconLib.Unofficial.0.73.0-local1\lib\net20\IconLib.dll</HintPath>
+    <Reference Include="IconLib, Version=0.73.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\#packages\IconLib.Unofficial.0.73.0\lib\net20\IconLib.dll</HintPath>
     </Reference>
     <Reference Include="JetBrains.Annotations">
       <HintPath>..\#packages\JetBrains.Annotations.8.0.4.0\lib\net20\JetBrains.Annotations.dll</HintPath>
