@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="ef909810-3edb-49c8-81a1-1f05310780c7">
+  <Identifier Id="7696a097-76fc-4940-87d8-97d5304a5a9b">
     <Name>Solution Icon</Name>
     <Author>Andrey Shchekin</Author>
     <!-- Please keep in sync with AssemblyInfo -->
