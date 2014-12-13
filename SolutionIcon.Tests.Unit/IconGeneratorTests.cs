@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using SolutionIcon.Implementation;
 using SolutionIcon.Tests.Unit.Helpers;
+using Xunit;
 using Xunit.Extensions;
 
 namespace SolutionIcon.Tests.Unit {
