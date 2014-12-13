@@ -35,7 +35,7 @@ namespace SolutionIcon.Implementation {
 
         private void SolutionEvents_Opened() {
             var solution = _dte.Solution;
-            _logger.WriteLine("Opened solution '{0}'.", solution.FileName);
+            _logger.WriteLine("Opened solution '{0}'.", solution.GetName());
 
             try {
                 using (var icon = GetIcon(solution)) {
@@ -56,16 +56,17 @@ namespace SolutionIcon.Implementation {
 
         [NotNull]
         private Bitmap GetIconImage([NotNull] Solution solution) {
+            var solutionName = solution.GetName();
             var iconFile = _iconDiscovery.FindIcon(solution);
             if (iconFile != null) {
-                _logger.WriteLine("Solution '{0}': found icon at '{1}'.", solution.FullName, iconFile.FullName);
+                _logger.WriteLine("Solution '{0}': found icon at '{1}'.", solutionName, iconFile.FullName);
                 using (var stream = iconFile.OpenRead()) {
                     return (Bitmap)Image.FromStream(stream);
                 }
             }
 
-            _logger.WriteLine("Solution '{0}': Icon not found, generating.", solution.FullName);
-            return _iconGenerator.GenerateIcon(solution.FullName, solution.FileName);
+            _logger.WriteLine("Solution '{0}': Icon not found, generating.", solutionName);
+            return _iconGenerator.GenerateIcon(solutionName, solution.FileName);
         }
     }
 }
