@@ -8,9 +8,10 @@ using Xunit;
 using Xunit.Extensions;
 
 namespace SolutionIcon.Tests.Unit {
-    public class IconSelectorTests {
+    public class IconFinderTests {
         [Theory]
         [InlineData("Should not match unknown names.", new[] { "xsomething.png" }, null)]
+        [InlineData("Should not match parts of names.", new[] { "_favicon_.png" }, null)]
         [InlineData("Should not match unknown extensions.", new[] { "favicon.meh" }, null)]
         [InlineData("Should prefer editoricon.", new[] {  "favicon.ico", ".editoricon.png" }, ".editoricon.png")]
         [InlineData("Should match favicon.", new[] { "favicon.ico" }, "favicon.ico")]
@@ -26,7 +27,7 @@ namespace SolutionIcon.Tests.Unit {
                 Directory = solutionDirectory
             });
 
-            var best = new IconDiscovery(fileSystem).FindIcon(solution.Object);
+            var best = new IconFinder(fileSystem).FindIcon(solution.Object);
             Assert.Equal(expected, best != null ? best.FullName : null);
         }
 

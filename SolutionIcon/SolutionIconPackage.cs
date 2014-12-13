@@ -39,7 +39,7 @@ namespace SolutionIcon {
             var logger = new ExtensionLogger("SolutionIcon", title => GetOutputPane(Guids.OutputPane, title));
             _manager = new SolutionIconManager(
                 (DTE)GetService(typeof(DTE)),
-                new IconDiscovery(new FileSystem()), 
+                new IconFinder(new FileSystem()), 
                 new IconConverter(),
                 new IconGenerator(new TinyIdGenerator()), 
                 logger

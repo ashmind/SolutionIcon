@@ -160,7 +160,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\IconConverter.cs" />
-    <Compile Include="Implementation\IconDiscovery.cs" />
+    <Compile Include="Implementation\IconFinder.cs" />
     <Compile Include="Implementation\IconGenerator.cs" />
     <Compile Include="Implementation\SolutionExtensions.cs" />
     <Compile Include="Implementation\SolutionIconManager.cs" />

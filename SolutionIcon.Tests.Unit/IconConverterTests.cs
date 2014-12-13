@@ -11,6 +11,7 @@ namespace SolutionIcon.Tests.Unit {
     public class IconConverterTests {
         [Theory]
         [InlineData("wikimedia-logo.png")]
+        [InlineData("jabbr-apple-touch-icon.png")]
         [InlineData("hat.ico")]
         public void ConvertIcon_ProducesExpectedImage_FromStaticFile(string inputFileName) {
             var actualFileName = inputFileName + ".actual.ico";

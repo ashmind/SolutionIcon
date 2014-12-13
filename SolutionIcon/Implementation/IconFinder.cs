@@ -8,7 +8,7 @@ using EnvDTE;
 using JetBrains.Annotations;
 
 namespace SolutionIcon.Implementation {
-    public class IconDiscovery {
+    public class IconFinder {
         private readonly IFileSystem _fileSystem;
 
         private static readonly HashSet<string> ImageFileExtensions = new HashSet<string>(StringComparer.InvariantCultureIgnoreCase) {
@@ -19,9 +19,9 @@ namespace SolutionIcon.Implementation {
             ".ico"
         };
 
-        private static readonly Regex NameRegex = new Regex(@"^favicon|logo|icon$", RegexOptions.IgnoreCase);
+        private static readonly Regex NameRegex = new Regex(@"^(favicon|logo|icon)$|^apple-touch-icon", RegexOptions.IgnoreCase);
 
-        public IconDiscovery(IFileSystem fileSystem) {
+        public IconFinder(IFileSystem fileSystem) {
             _fileSystem = fileSystem;
         }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.IconLib;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
@@ -14,7 +15,7 @@ namespace SolutionIcon.Implementation {
             if (image.Width == iconSize.Width && image.Height == iconSize.Height)
                 return ConvertToIcon(image);
 
-            using (var resized = new Bitmap(iconSize.Width, iconSize.Height, image.PixelFormat)) {
+            using (var resized = new Bitmap(iconSize.Width, iconSize.Height, PixelFormat.Format32bppArgb)) {
                 using (var g = Graphics.FromImage(resized)) {
                     g.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     g.DrawImage(image, 0, 0, iconSize.Width, iconSize.Height);

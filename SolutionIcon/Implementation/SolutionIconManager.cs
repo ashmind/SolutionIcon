@@ -11,7 +11,7 @@ namespace SolutionIcon.Implementation {
         private static readonly Size IconSize = new Size(32, 32);
 
         private readonly DTE _dte;
-        private readonly IconDiscovery _iconDiscovery;
+        private readonly IconFinder _iconFinder;
         private readonly IconConverter _iconConverter;
         private readonly IconGenerator _iconGenerator;
         private readonly IDiagnosticLogger _logger;
@@ -19,9 +19,9 @@ namespace SolutionIcon.Implementation {
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable (GC fix)
         private readonly SolutionEvents _solutionEvents;
 
-        public SolutionIconManager(DTE dte, IconDiscovery iconDiscovery, IconConverter iconConverter, IconGenerator iconGenerator, IDiagnosticLogger logger) {
+        public SolutionIconManager(DTE dte, IconFinder iconFinder, IconConverter iconConverter, IconGenerator iconGenerator, IDiagnosticLogger logger) {
             _dte = dte;
-            _iconDiscovery = iconDiscovery;
+            _iconFinder = iconFinder;
             _iconConverter = iconConverter;
             _iconGenerator = iconGenerator;
             _logger = logger;
@@ -69,7 +69,7 @@ namespace SolutionIcon.Implementation {
         
         [CanBeNull]
         private Icon FindAndConvertExistingIcon([NotNull] Solution solution) {
-            var iconFile = _iconDiscovery.FindIcon(solution);
+            var iconFile = _iconFinder.FindIcon(solution);
             if (iconFile == null)
                 return null;
 
