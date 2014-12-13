@@ -39,8 +39,16 @@ namespace SolutionIcon.Implementation {
             // I started using EnvDTE for this, but there wasn't much benefit.
             // This approach does not cover Links and other virtual project items,
             // but I don't see those as essential for solution image.
-            return solutionDirectory.EnumerateFiles("*.*", SearchOption.AllDirectories)
-                                    .FirstOrDefault(f => ImageFileExtensions.Contains(f.Extension) && NameRegex.IsMatch(Path.GetFileNameWithoutExtension(f.Name)));
+            var topLevelDirectories = solutionDirectory.EnumerateDirectories();
+            return new[] { solutionDirectory }
+                .Concat(topLevelDirectories)
+                .SelectMany(d => d.EnumerateFiles())
+                .FirstOrDefault(IsAcceptableAsIcon);
+        }
+
+        private static bool IsAcceptableAsIcon(IFile file) {
+            return ImageFileExtensions.Contains(file.Extension)
+                && NameRegex.IsMatch(Path.GetFileNameWithoutExtension(file.Name));
         }
     }
 }
