@@ -7,7 +7,7 @@ SolutionIcon is an extension that adds solution-related overlay icon to VS taskb
 ### Use case
 
 I often have multiple Visual Studio instances open.  
-I never combine taskbar buttons as it makes switching inefficient -- howver this means that I do not get previews either.  
+I never combine taskbar buttons as it makes switching inefficient — however this means that I do not get previews either.  
 
 This extension allows to quickly distinguish VS buttons with a glance.
 
@@ -25,8 +25,8 @@ This is very limited at the moment, but e.g. favicon.ico might be recognized.
 The algorithm uses one or two letters from the solution name, and a color based on solution path.
 
 ### Requirements
-Supports Visual Studio 2010 - 2013.
+Supports Visual Studio 2010 - 2015.
 
 ### See also
-TODO
-<!-- [Visual Studio Gallery](http://visualstudiogallery.msdn.microsoft.com/83f369cf-9fac-4430-addf-fedacc0af919) -->
+
+[Visual Studio Gallery](https://visualstudiogallery.msdn.microsoft.com/cebfde58-4395-4372-a94f-c400dd0aa125)
