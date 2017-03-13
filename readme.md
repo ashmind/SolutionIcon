@@ -25,7 +25,7 @@ This is very limited at the moment, but e.g. favicon.ico might be recognized.
 The algorithm uses one or two letters from the solution name, and a color based on solution path.
 
 ### Requirements
-Supports Visual Studio 2010 - 2015.
+Supports Visual Studio 2012 - 2017.
 
 ### See also
 

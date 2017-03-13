@@ -6,7 +6,7 @@ using SolutionIcon.Properties;
 
 [assembly: AssemblyTitle("SolutionIcon")]
 [assembly: AssemblyCompany("Andrey Shchekin")]
-[assembly: ComVisible(false)]     
+[assembly: ComVisible(false)]
 [assembly: CLSCompliant(false)]
 [assembly: NeutralResourcesLanguage("en-US")]
 
@@ -17,6 +17,6 @@ using SolutionIcon.Properties;
 namespace SolutionIcon.Properties {
     internal static class AssemblyInfo {
         // Please keep in sync with vsixmanifest
-        public const string VersionString = "1.0.0";
+        public const string VersionString = "1.1.0";
     }
 }

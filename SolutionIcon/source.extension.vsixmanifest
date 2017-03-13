@@ -1,38 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Vsix xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Version="1.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2010">
-  <Identifier Id="7696a097-76fc-4940-87d8-97d5304a5a9b">
-    <Name>Solution Icon</Name>
-    <Author>Andrey Shchekin</Author>
-    <!-- Please keep in sync with AssemblyInfo -->
-    <Version>1.0.0</Version>
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+  <Metadata>
+    <Identity Id="7696a097-76fc-4940-87d8-97d5304a5a9b" Version="1.1.0" Language="en-US" Publisher="Andrey Shchekin" />
+    <DisplayName>Solution Icon</DisplayName>
+    <Description xml:space="preserve">Shows an additional solution-related icon over the Visual Studio taskbar button.</Description>
+    <MoreInfo>https://github.com/ashmind/SolutionIcon</MoreInfo>
     <Icon>Icon.png</Icon>
     <PreviewImage>Screenshot.png</PreviewImage>
-    <Description xml:space="preserve">Shows an additional solution-related icon over the Visual Studio taskbar button.</Description>
-    <Locale>1033</Locale>
-    <MoreInfoUrl>https://github.com/ashmind/SolutionIcon</MoreInfoUrl>
-    <InstalledByMsi>false</InstalledByMsi>
-    <SupportedProducts>
-      <VisualStudio Version="10.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-      <VisualStudio Version="11.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-      <VisualStudio Version="12.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-      <VisualStudio Version="14.0">
-        <Edition>Pro</Edition>
-      </VisualStudio>
-    </SupportedProducts>
-    <SupportedFrameworkRuntimeEdition MinVersion="4.0" />
-  </Identifier>
-  <References>
-    <Reference Id="Microsoft.VisualStudio.MPF" MinVersion="10.0">
-      <Name>Visual Studio MPF</Name>
-    </Reference>
-  </References>
-  <Content>
-    <VsPackage>|%CurrentProject%;PkgdefProjectOutputGroup|</VsPackage>
-  </Content>
-</Vsix>
+  </Metadata>
+  <Installation>
+    <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[11.0, 15.0]" />
+  </Installation>
+  <Dependencies>
+    <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+    <Dependency d:Source="Installed" Id="Microsoft.VisualStudio.MPF" DisplayName="Visual Studio MPF" Version="[11.0,12.0)" />
+  </Dependencies>
+  <Prerequisites>
+    <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[15.0,16.0)" DisplayName="Visual Studio core editor" />
+  </Prerequisites>
+</PackageManifest>
