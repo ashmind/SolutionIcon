@@ -38,7 +38,16 @@ namespace SolutionIcon.Implementation {
 
         private void SolutionEvents_Opened() {
             var solution = _dte.Solution;
-            _logger.WriteLine("Solution '{0}' opened.", solution.GetName());
+            var solutionName = solution.GetName();
+            _logger.WriteLine("Solution '{0}' opened.", solutionName);
+            if (string.IsNullOrEmpty(solutionName)) {
+                // https://github.com/ashmind/SolutionIcon/issues/4
+                // I can't reproduce this for now, so jsut skipping.
+                // However in the future I should improve it to work
+                // with new "Open Folder".
+                _logger.WriteLine("Solution name is empty, ignoring.");
+                return;
+            }
 
             try {
                 using (var icon = GetIcon(solution)) {
